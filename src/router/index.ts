@@ -1,26 +1,20 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import NumbersApp from '../components/Numbers.vue'
-import HeroApp from '../components/Hero.vue'
+import DashboardApp from '../components/Dashboard.vue'
 import ContactApp from '../components/Contact.vue'
 
-import BannerComponent from '@/components/BannerComponent.vue'
-
 const routes: RouteRecordRaw[] = [
-  { 
+  {
     path: '/',
     name: 'Home',
-    component: BannerComponent
+    component: DashboardApp
   },
   {
     path: '/numbers',
     name: 'NumbersApp',
     component: NumbersApp
   },
-  {
-    path: '/hero',
-    name: 'HeroApp',
-    component: HeroApp
-  },
+  
   {
     path: '/contact',
     name: 'ContactApp',

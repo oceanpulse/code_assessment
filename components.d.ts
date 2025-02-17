@@ -10,6 +10,7 @@ declare module 'vue' {
     Banner: typeof import('./src/components/Banner.vue')['default']
     BannerComponent: typeof import('./src/components/BannerComponent.vue')['default']
     Contact: typeof import('./src/components/Contact.vue')['default']
+    Dashboard: typeof import('./src/components/Dashboard.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Hero: typeof import('./src/components/Hero.vue')['default']
     Home: typeof import('./src/components/Home.vue')['default']
