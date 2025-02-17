@@ -1,16 +1,25 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 
+/** Reactive State Variables
+ * the const limit controls the max number in the sequence
+ * the const activeDivisors is an array of numbers that are currently being hovered over
+ * the const selectedNumber is the number that is currently selected
+ * the let hideTimeout is a timer that hides the activeDivisors after a certain amount of time
+*/
 const limit = ref<number>(100);
 const activeDivisors = ref<number[]>([]);
 const selectedNumber = ref<number | null>(null);
 let hideTimeout: ReturnType<typeof setTimeout> | null = null;
 
-// Generate shuffled numbers
+/** Computed Properties 
+ * Returns shuffled numbers based on the current limit
+ * and then creates an array of numbers from 1 to limit.value
+*/  
 const shuffledNumbers = computed(() => {
   const numbers = Array.from({ length: limit.value }, (_, i) => i + 1);
 
-  // Fisher-Yates shuffle
+  // Fisher-Yates shuffle algorithm to randomize the order of numbers
   const shuffled = [...numbers];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -19,12 +28,13 @@ const shuffledNumbers = computed(() => {
   return shuffled;
 });
 
-// Handle hover
+// Handles hover event over a number andclears any existing timeout that might be set to hide the card.
 function handleHover(number: number) {
   if (hideTimeout) {
     clearTimeout(hideTimeout); // Cancel the hide timer
     hideTimeout = null;
   }
+  // Calculates divisors of the current number, and sets a timeout to hide the card explanation after a certain amount of time.
   activeDivisors.value = shuffledNumbers.value.filter(n => number % n === 0);
   selectedNumber.value = number;
 }

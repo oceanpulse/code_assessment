@@ -43,11 +43,11 @@
       <v-spacer />
 
       <template #append>
-        <v-btn
+        <!-- <v-btn
           class="ms-1"
           color="medium-emphasis"
           icon="mdi-bell-outline"
-        />
+        /> -->
 
         <v-btn class="ms-1" icon>
           <v-avatar image="@/assets/clint.png" />
@@ -77,7 +77,7 @@
 
   <v-footer class="d-flex flex-column pt-10 accent-2">
     <div class="accent-2 d-flex w-100 align-center px-4">
-      <strong>I am ready to be onboarded!</strong>
+      <strong>Ready to Build.</strong>
       <v-spacer></v-spacer>
       <v-btn
         v-for="icon in icons"
@@ -105,7 +105,7 @@ const items = [
   { text: 'Code-Assessment', to: '/numbers' },
   { text: 'Why me', to: '/whyme' },
   { text: 'Contact', to: '/contact' },
-  { text: 'Technicals', to: '/technicals' },
+  { text: 'Overview', to: '/overview' },
 
 ];
 
