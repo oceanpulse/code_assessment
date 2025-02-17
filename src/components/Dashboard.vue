@@ -25,7 +25,7 @@
       <v-img
         class="me-sm-8"
         max-width="40"
-        src="https://cdn.vuetifyjs.com/docs/images/logos/v.svg"
+        src="@/assets/logo.png"
       />
 
       <template v-if="$vuetify.display.mdAndUp">
@@ -50,14 +50,14 @@
         />
 
         <v-btn class="ms-1" icon>
-          <v-avatar image="https://cdn.vuetifyjs.com/images/john.png" />
+          <v-avatar image="@/assets/clint.png" />
 
           <v-menu activator="parent" origin="top">
-            <v-list>
+            <!-- <v-list>
               <v-list-item link title="Update profile" />
 
               <v-list-item link title="Sign out" />
-            </v-list>
+            </v-list> -->
           </v-menu>
         </v-btn>
       </template>
@@ -111,7 +111,7 @@ const drawer = shallowRef(false);
 
 const items = [
   { text: 'Code Assessment', to: '/' },
-  { text: 'Why me', to: '/why-me' },
+  { text: 'Why me', to: '/whyme' },
   { text: 'Code explanation', to: '/code-explanation' },
   { text: 'Technical Doc', to: '/technical-doc' },
   { text: 'Contact', to: '/contact' }, // Add the correct route here

@@ -36,7 +36,7 @@ const onSubmit = handleSubmit(async (values) => {
   try {
     const response = await axios.post('https://code-assessment-three.vercel.app/api/send-email', values);
     if (response.data.success) {
-      successMessage.value = 'Your message has been sent!';
+      successMessage.value = 'Thank you Mr Operations Manager. Your message has been sent!';
     } else {
       errorMessage.value = 'Failed to send message. Please try again.';
     }
@@ -52,7 +52,7 @@ const onSubmit = handleSubmit(async (values) => {
 <template>
   <v-container>
     <v-card class="pa-5" max-width="500" elevation="3">
-      <v-card-title class="text-h5">I am an email away, Mr Operations Manager</v-card-title>
+      <v-card-title class="text-h5">I'm ready for Hire</v-card-title>
 
       <v-form @submit.prevent="onSubmit">
         <v-text-field
