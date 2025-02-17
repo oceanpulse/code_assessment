@@ -26,13 +26,14 @@
 }
 
 .active {
-  background-color: #ff6b6b;
-  color: white;
+  background-color: #ffd740;
+  
+  color: rgb(38, 36, 36);
 }
 
 .limit-input {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  width: 200px;
+  width: 80px;
 }

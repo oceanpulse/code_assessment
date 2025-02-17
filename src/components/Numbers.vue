@@ -68,7 +68,7 @@ function resetActive() {
         v-if="selectedNumber !== null" 
         class="explanation-card mt-4 mb-10 pa-1"
         elevation="3"
-        color="blue-lighten-5"
+        color="amber-accent-2"
       >
         <v-card-title class="text-h6 font-weight-bold">
           Understanding Number {{ selectedNumber }}
@@ -129,7 +129,7 @@ function resetActive() {
 }
 
 .active {
-  background-color: #ff6b6b;
+  background-color: #ffd740;
   color: rgb(38, 36, 36);
 }
 

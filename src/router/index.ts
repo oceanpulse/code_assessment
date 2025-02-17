@@ -3,6 +3,7 @@ import NumbersApp from '../components/Numbers.vue'
 import DashboardApp from '../components/Dashboard.vue'
 import ContactApp from '../components/Contact.vue'
 import WhymeApp from '@/components/Whyme.vue'
+import TechnicalsApp from '@/components/Technicals.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -27,6 +28,11 @@ const routes: RouteRecordRaw[] = [
         path: '/contact',
         name: 'Contact',
         component: ContactApp
+      },
+      {
+        path: '/technicals',
+        name: 'Technicals',
+        component: TechnicalsApp
       }
     ]
   }

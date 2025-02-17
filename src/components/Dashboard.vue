@@ -61,7 +61,7 @@
       <v-toolbar color="surface" elevation="1" height="100">
         <template #title>
           <h2 class="text-h4 font-weight-bold align-center">
-            Discover Number Divisors Instantly
+            Discover Who <span class="text-amber">Clint Edward</span> is.
           </h2>
         </template>
       </v-toolbar>
@@ -75,14 +75,15 @@
     </v-main>
   </v-layout>
 
-  <v-footer class="d-flex flex-column pt-10">
-    <div class="bg-red d-flex w-100 align-center px-4">
+  <v-footer class="d-flex flex-column pt-10 accent-2">
+    <div class="accent-2 d-flex w-100 align-center px-4">
       <strong>I am ready to be onboarded!</strong>
       <v-spacer></v-spacer>
       <v-btn
         v-for="icon in icons"
-        :key="icon"
-        :icon="icon"
+        :key="icon.icon"
+        :icon="icon.icon"
+        :href="icon.to"
         class="mx-4"
         size="small"
         variant="plain"
@@ -104,10 +105,19 @@ const items = [
   { text: 'Code-Assessment', to: '/numbers' },
   { text: 'Why me', to: '/whyme' },
   { text: 'Contact', to: '/contact' },
+  { text: 'Technicals', to: '/technicals' },
+
 ];
 
 const icons = [
-  'mdi-web',
-  'mdi-github'
+  { icon: 'mdi-web', to: 'https://clintedward.tech' },
+  { icon: 'mdi-github', to: 'https://github.com/oceanpulse' }
 ];
 </script>
+
+<style>
+  .text-amber {
+    color: #FFD740
+  }
+</style>
+
