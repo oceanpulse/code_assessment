@@ -7,6 +7,7 @@
           v-for="(item, i) in items"
           :key="i"
           :active="i === 0"
+          :to="item.to" 
           link
           :title="item.text"
         />
@@ -31,11 +32,12 @@
         <v-btn
           v-for="(item, i) in items"
           :key="i"
-          :active="i === 0"
+          :to="item.to" 
           class="me-2 text-none"
           slim
-          v-bind="item"
-        />
+        >
+  {{ item.text }}
+</v-btn>
       </template>
 
       <v-spacer />
@@ -77,6 +79,28 @@
       </div>
     </v-main>
   </v-layout>
+
+  <v-footer class="d-flex flex-column">
+    <div class="bg-red d-flex w-100 align-center px-4">
+      <strong>I am ready to be onboarded!</strong>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        v-for="icon in icons"
+        :key="icon"
+        :icon="icon"
+        class="mx-4"
+        size="small"
+        variant="plain"
+      />
+    </div>
+
+    <div class="px-4 py-2  text-center w-100" color="surface">
+      {{ new Date().getFullYear() }} — <strong>Clint Edward</strong>
+    </div>
+  </v-footer>
+
 </template>
 
 <script setup lang="ts">
@@ -86,10 +110,15 @@ import Numbers from './Numbers.vue';
 const drawer = shallowRef(false);
 
 const items = [
-  { text: 'Code Assessment' },
-  { text: 'Why me' },
-  { text: 'Code explanation' },
-  { text: 'Technical Doc' },
-  { text: 'Contact' },
+  { text: 'Code Assessment', to: '/' },
+  { text: 'Why me', to: '/why-me' },
+  { text: 'Code explanation', to: '/code-explanation' },
+  { text: 'Technical Doc', to: '/technical-doc' },
+  { text: 'Contact', to: '/contact' }, // Add the correct route here
 ];
+
+const icons = [
+    'mdi-web',
+    'mdi-github'
+  ];
 </script>
