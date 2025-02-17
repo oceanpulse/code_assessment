@@ -1,7 +1,7 @@
 <!-- Dashboard.vue -->
 <template>
   <v-layout>
-    <v-navigation-drawer v-model="drawer" color="primary" disable-resize-watcher>
+    <v-navigation-drawer v-model="drawer" class="bg-amber text-black" disable-resize-watcher>
       <v-list nav>
         <v-list-item
           v-for="(item, i) in items"
