@@ -10,15 +10,10 @@ const transporter = nodemailer.createTransport({
 });
 
 export default async function handler(req, res) {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
-  }
-
-  // Add CORS headers
+  // Handle CORS
   res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Or specify your frontend domain
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
   res.setHeader(
     'Access-Control-Allow-Headers',
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
@@ -26,10 +21,23 @@ export default async function handler(req, res) {
 
   // Handle preflight request
   if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+    res.status(200).end();
+    return;
+  }
+
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method not allowed' });
   }
 
   const { name, email, message } = req.body;
+
+  // Add logging to debug
+  console.log('Received request:', { name, email, message });
+  console.log('Environment variables:', { 
+    hasUser: !!process.env.EMAIL_USER, 
+    hasPass: !!process.env.EMAIL_PASS 
+  });
 
   try {
     await transporter.sendMail({
@@ -41,7 +49,11 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ success: true, message: 'Email sent successfully!' });
   } catch (error) {
-    console.error('Email error:', error);
-    return res.status(500).json({ success: false, message: 'Email failed to send.' });
+    console.error('Detailed email error:', error);
+    return res.status(500).json({ 
+      success: false, 
+      message: 'Email failed to send.', 
+      error: error.message 
+    });
   }
 }

@@ -64,7 +64,7 @@
     </v-app-bar>
 
     <v-main>
-      <v-toolbar color="surface" elevation="1" height="84">
+      <v-toolbar color="surface" elevation="1" height="100">
         <template #title>
           <h2 class="text-h4 font-weight-bold align-center">
             Discover Number Divisors Instantly
@@ -73,14 +73,14 @@
       </v-toolbar>
 
       <div class="pa-4">
-        <v-sheet border="dashed md" color="surface-light" height="100%" rounded="lg" width="100%">
+        <v-sheet border="dashed md" color="surface-light" height="50%" rounded="lg" width="100%">
           <Numbers />
         </v-sheet>
       </div>
     </v-main>
   </v-layout>
 
-  <v-footer class="d-flex flex-column">
+  <v-footer class="d-flex flex-column pt-10">
     <div class="bg-red d-flex w-100 align-center px-4">
       <strong>I am ready to be onboarded!</strong>
 

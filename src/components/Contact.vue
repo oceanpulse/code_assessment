@@ -52,7 +52,7 @@ const onSubmit = handleSubmit(async (values) => {
 <template>
   <v-container>
     <v-card class="pa-5" max-width="500" elevation="3">
-      <v-card-title class="text-h5">Contact Me</v-card-title>
+      <v-card-title class="text-h5">I am an email away, Mr Operations Manager</v-card-title>
 
       <v-form @submit.prevent="onSubmit">
         <v-text-field

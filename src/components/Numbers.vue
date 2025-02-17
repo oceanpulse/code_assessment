@@ -66,7 +66,7 @@ function resetActive() {
     <transition name="fade">
       <v-card 
         v-if="selectedNumber !== null" 
-        class="explanation-card mt-4 pa-4"
+        class="explanation-card mt-4 mb-10 pa-1"
         elevation="3"
         color="blue-lighten-5"
       >
@@ -109,7 +109,8 @@ function resetActive() {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 600px;
+  max-width: 1000px;
+  margin-bottom: 20px;
 }
 
 .number {
@@ -143,6 +144,6 @@ function resetActive() {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  width: 65px;
+  width: 36px;
 }
 </style>
