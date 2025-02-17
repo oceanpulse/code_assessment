@@ -1,4 +1,4 @@
-<!-- eslint-disable vue/html-indent -->
+<!-- Dashboard.vue -->
 <template>
   <v-layout>
     <v-navigation-drawer v-model="drawer" color="primary" disable-resize-watcher>
@@ -36,8 +36,8 @@
           class="me-2 text-none"
           slim
         >
-  {{ item.text }}
-</v-btn>
+          {{ item.text }}
+        </v-btn>
       </template>
 
       <v-spacer />
@@ -51,13 +51,7 @@
 
         <v-btn class="ms-1" icon>
           <v-avatar image="@/assets/clint.png" />
-
           <v-menu activator="parent" origin="top">
-            <!-- <v-list>
-              <v-list-item link title="Update profile" />
-
-              <v-list-item link title="Sign out" />
-            </v-list> -->
           </v-menu>
         </v-btn>
       </template>
@@ -74,7 +68,8 @@
 
       <div class="pa-4">
         <v-sheet border="dashed md" color="surface-light" height="50%" rounded="lg" width="100%">
-          <Numbers />
+          <!-- Replace the direct component rendering with router-view -->
+          <router-view></router-view>
         </v-sheet>
       </div>
     </v-main>
@@ -83,9 +78,7 @@
   <v-footer class="d-flex flex-column pt-10">
     <div class="bg-red d-flex w-100 align-center px-4">
       <strong>I am ready to be onboarded!</strong>
-
       <v-spacer></v-spacer>
-
       <v-btn
         v-for="icon in icons"
         :key="icon"
@@ -96,29 +89,25 @@
       />
     </div>
 
-    <div class="px-4 py-2  text-center w-100" color="surface">
+    <div class="px-4 py-2 text-center w-100" color="surface">
       {{ new Date().getFullYear() }} — <strong>Clint Edward</strong>
     </div>
   </v-footer>
-
 </template>
 
 <script setup lang="ts">
 import { shallowRef } from 'vue';
-import Numbers from './Numbers.vue'; 
 
 const drawer = shallowRef(false);
 
 const items = [
-  { text: 'Code Assessment', to: '/' },
+  { text: 'Code-Assessment', to: '/numbers' },
   { text: 'Why me', to: '/whyme' },
-  { text: 'Code explanation', to: '/code-explanation' },
-  { text: 'Technical Doc', to: '/technical-doc' },
-  { text: 'Contact', to: '/contact' }, // Add the correct route here
+  { text: 'Contact', to: '/contact' },
 ];
 
 const icons = [
-    'mdi-web',
-    'mdi-github'
-  ];
+  'mdi-web',
+  'mdi-github'
+];
 </script>

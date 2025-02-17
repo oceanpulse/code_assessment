@@ -7,28 +7,30 @@ import WhymeApp from '@/components/Whyme.vue'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'Home',
-    component: DashboardApp
-  },
-  {
-    path: '/whyme',
-    name: 'WhymeApp',
-    component: WhymeApp
-  },
-  {
-    path: '/numbers',
-    name: 'NumbersApp',
-    component: NumbersApp
-  },
-  
-  {
-    path: '/contact',
-    name: 'ContactApp',
-    component: ContactApp
+    component: DashboardApp,
+    children: [
+      {
+        path: '',
+        redirect: '/numbers'
+      },
+      {
+        path: '/numbers',
+        name: 'Numbers',
+        component: NumbersApp
+      },
+      {
+        path: '/whyme',
+        name: 'Whyme',
+        component: WhymeApp
+      },
+      {
+        path: '/contact',
+        name: 'Contact',
+        component: ContactApp
+      }
+    ]
   }
 ]
-  
-
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
